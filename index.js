@@ -6,15 +6,18 @@ const menu = {
 };
 
 // Function to display menu items by category
+//All the stuff below will be going into the menu part of the the website
 function displayMenuItems(menu) {
   // Get the menu container element from the HTML
   const menuContainer = document.getElementById("menu");
 
   // Loop through each category and its items in the menu object
-
-  // Create an element to represent the category
-
-  // Set the text content of the category element to the category name
+  for (let category in menu) {
+    // Create an element to represent the category
+    const categoryElement = document.createElement("h2");
+    // Set the text content of the category element to the category name
+    categoryElement.textContent = category; //  What this will do is that each category highlighted in the  in the  the menu "object " will be converterd into text for the HTML
+  }
 
   // Append the category element to the menu container
 
@@ -52,3 +55,5 @@ function initMenuSystem(menu) {
 initMenuSystem(menu);
 
 displayMenuItems(menu);
+
+console.log("Category", category);
