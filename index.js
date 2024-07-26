@@ -33,15 +33,18 @@ function displayMenuItems(menu) {
       listItem.textContent = itemName;
       // Attach a click event listener to the list item to add it to the order
       listItem.addEventListener("click", () => addToOrder(item)); //I needed external help on the syntax and meaning for this line of code ,
+      // Append the list item to the list of items
+      ItemList.appendChild(listItem);
     });
-
-    // Append the list item to the list of items
   }
 }
 
 // Callback function for adding an item to the order
 function addToOrder(itemName) {
   // Get the order items list and the order total element from the HTML
+  const orderItemsList = document.getElementById("order-items");
+  const orderTotalElement = document.getElementById("order-total");
+
   // Create a list item for the order
   // Set the text content of the list item to the item name
   // Append the list item to the order items list
