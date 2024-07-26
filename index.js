@@ -23,6 +23,7 @@ function displayMenuItems(menu) {
     // Create an element to represent a list of items
     const ItemList = document.createElement("ul"); //this will create space in which an unorderd list can exist
     // Append a list of items element to the menu container
+    menuContainer.appendChild(ItemList);
 
     // Loop through the items in the category and create list items
 
