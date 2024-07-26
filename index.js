@@ -26,13 +26,13 @@ function displayMenuItems(menu) {
     menuContainer.appendChild(ItemList);
 
     // Loop through the items in the category and create list items
-    menu[category].forEach((element) => {
+    menu[category].forEach((itemName) => {
       // Create a list item element
       const listItem = document.createElement("li");
       // Set the text content of the list item element to the item name
       listItem.textContent = itemName;
       // Attach a click event listener to the list item to add it to the order
-      listItem.addEventListener("click", () => addToOrder(item)); //I needed external help on the syntax and meaning for this line of code ,
+      listItem.addEventListener("click", () => addToOrder(itemName)); //I needed external help on the syntax and meaning for this line of code ,
       // Append the list item to the list of items
       ItemList.appendChild(listItem);
     });
@@ -46,20 +46,24 @@ function addToOrder(itemName) {
   const orderTotalElement = document.getElementById("order-total");
 
   // Create a list item for the order
+  const orderItem = document.createElement("li");
   // Set the text content of the list item to the item name
+  orderItem.textContent = itemName;
   // Append the list item to the order items list
+  orderItemsList.appendChild(orderItem);
   // Calculate and update the total price
+  const itemPrice = 10.0; //used chatgpt to help me with this section of content since it was a bit new to me
+  let currentTotal = parseFloat(orderTotalElement.textContent);
+  currentTotal += itemPrice;
   // Update the text content of the order total element with the new total
+  orderTotalElement.textContent = currentTotal.toFixed(2); // to fixed affect the decimal points
 }
 
 // Function to initialize the menu system
 function initMenuSystem(menu) {
   // Call the function to display menu items
+  displayMenuItems(menu);
 }
 
 // Start the menu system by calling the init function
 initMenuSystem(menu);
-
-displayMenuItems(menu);
-
-console.log("Category", category);
